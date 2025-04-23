@@ -49,8 +49,8 @@ public class Ring {
         }
         
         
-        proc[num-1].state="inactive";
-        
+//        proc[num-1].state="inactive";
+        //uncomment if u want to assume all are not acitve
         
         int choice;
         while(true) {
@@ -62,7 +62,7 @@ public class Ring {
 		switch(choice) {
 		case 1:
 			System.out.println("Current Processes:");
-			for (int i = 0; i < num-1; i++) {
+			for (int i = 0; i < num; i++) {//make it num-1 if we assume the highest number is inactive
                 System.out.println("Index: " + i + ", ID: " + proc[i].id + ", State: " + proc[i].state);
             }
 			System.out.println("Enter process id who will initiate the election:");
@@ -94,8 +94,10 @@ public class Ring {
 				}
 				cur=next;
 			}
+			System.out.println("Process " + maxid + " is selected as new co-ordinator.");
+			break;
 			
-			 System.out.println("Process " + maxid + " is selected as new co-ordinator.");
+			 
 		case 2:
 			System.out.println("Program terminated.");
             break;
